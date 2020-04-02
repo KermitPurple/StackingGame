@@ -1,10 +1,9 @@
 let blockSize;
 
 function setup(){
-	createCanvas(400, window.innerHeight - 20);
+	createCanvas(400, 600);
 	blockSize = width / 8;
 	stroke(255);
-	strokeWeight(3);
 }
 
 
