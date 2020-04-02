@@ -6,7 +6,6 @@ function setup(){
 	stroke(255);
 }
 
-
 function draw(){
 	background(0);
 	drawGrid();
