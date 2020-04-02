@@ -1,18 +1,5 @@
 let blockSize;
-let grid = [
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0],
-];
+let grid;
 let gw = 8;
 let gh = 12;
 let slider;
@@ -24,7 +11,7 @@ function setup(){
 	blockSize = width / 8;
 	colorMode(HSB);
 	stroke(255);
-	slider = new Slider();
+	reset();
 }
 
 function draw(){
@@ -73,10 +60,32 @@ function drawBlock(i, j){
 	rect(x, y, blockSize);
 }
 
+function keyPressed(){
+	if(key == ' '){
+		slider.drop();
+	}else if(key == 'r'){
+		reset();
+	}
+}
+
 function mousePressed(){
 	slider.drop();
 }
 
-function keyPressed(){
-	slider.drop();
+function reset(){
+	grid = [
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+	];
+	slider = new Slider();
 }
