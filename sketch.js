@@ -4,7 +4,7 @@ let gw = 8;
 let gh = 12;
 let slider;
 let tik = 0;
-let speed = 5;
+let speed = 7;
 
 function setup(){
 	createCanvas(400, 600);
@@ -23,6 +23,7 @@ function draw(){
 		slider.update();
 		drawEmptyGrid();
 		slider.lose();
+		slider.win();
 	}
 	tik += 1;
 	tik = tik % 10000;
@@ -90,4 +91,5 @@ function reset(){
 		[0, 0, 0, 0, 0, 0, 0, 0],
 	];
 	slider = new Slider();
+	speed = 7;
 }
