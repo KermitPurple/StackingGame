@@ -15,18 +15,28 @@ let grid = [
 ];
 let gw = 8;
 let gh = 12;
+let slider;
+let tik = 0;
+let speed = 5;
 
 function setup(){
 	createCanvas(400, 600);
 	blockSize = width / 8;
 	colorMode(HSB);
 	stroke(255);
+	slider = new Slider();
 }
 
 function draw(){
-	background(0);
-	fillGrid();
-	drawEmptyGrid();
+	if(tik % speed == 0){
+		background(0);
+		fillGrid();
+		slider.draw();
+		slider.update();
+		drawEmptyGrid();
+	}
+	tik += 1;
+	tik = tik % 10000;
 }
 
 function drawEmptyGrid(){
@@ -45,10 +55,10 @@ function fillGrid(){
 			if (grid[i][j] == 1) {
 				c = getColor(i, j);
 			} else {
-				c = getColor(i, j, 15);
+				c = getColor(i, j, 10);
 			}
 			fill(c);
-			printBlock(i,j);
+			drawBlock(i,j);
 		}
 	}
 }
@@ -57,8 +67,16 @@ function getColor(i, j, b = 100){
 	return color(map(i + j, 0, gw + gh, 0, 360), 100, b);
 }
 
-function printBlock(i, j){
+function drawBlock(i, j){
 	let x = j * blockSize;
 	let y = i * blockSize;
 	rect(x, y, blockSize);
+}
+
+function mousePressed(){
+	slider.drop();
+}
+
+function keyPressed(){
+	slider.drop();
 }
