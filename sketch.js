@@ -11,6 +11,7 @@ function setup(){
 	blockSize = width / 8;
 	colorMode(HSB);
 	stroke(255);
+	textAlign(CENTER);
 	reset();
 }
 
@@ -21,6 +22,7 @@ function draw(){
 		slider.draw();
 		slider.update();
 		drawEmptyGrid();
+		slider.lose();
 	}
 	tik += 1;
 	tik = tik % 10000;
