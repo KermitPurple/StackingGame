@@ -5,6 +5,7 @@ class Slider{
 		this.width = 4;
 		this.dir = 'r';
 		this.done == false;
+		this.victory = true;
 	}
 
 	draw(){
@@ -51,16 +52,25 @@ class Slider{
 	}
 
 	lose(){
-		if(this.width == 0){
-			Slider.gameOverMessage("You Lose!", "press 'r' to restart");
+		if(this.width == 0 && !this.done){
 			this.done = true;
+			this.victory = false;
 		}
 	}
 
 	win(){
-		if(this.y < 0){
-			Slider.gameOverMessage("You Win!", "press 'r' to restart");
+		if(this.y < 0 && !this.done){
 			this.done = true;
+			this.victory = true;
+		}
+	}
+	drawGameOver(){
+		if(this.done){
+			if(this.victory){
+				Slider.gameOverMessage("You Win!", "press 'r' to restart");
+			}else{
+				Slider.gameOverMessage("You Lose!", "press 'r' to restart");
+			}
 		}
 	}
 

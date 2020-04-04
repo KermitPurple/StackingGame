@@ -19,11 +19,12 @@ function draw(){
 	if(tik % speed == 0){
 		background(0);
 		fillGrid();
-		slider.draw();
 		slider.update();
+		slider.draw();
 		drawEmptyGrid();
 		slider.lose();
 		slider.win();
+		slider.drawGameOver();
 	}
 	tik += 1;
 	tik = tik % 10000;
